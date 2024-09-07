@@ -24,7 +24,7 @@ public class ScannerDemo {
          * Eclipse's console. This may change depending on the environment where
          * are running your program or the input/output stream you are using.
          */
-
+    	Scanner scan = new Scanner(System.in);
         
         
         /*
@@ -41,7 +41,8 @@ public class ScannerDemo {
          * Note: Don't forget to save the results of next() or nextLine() into a
          * String variable.
          */
-
+    	System.out.println("name??????????");
+    	String name = scan.nextLine();
         
         
         /*
@@ -52,7 +53,8 @@ public class ScannerDemo {
          * on Integer.parseInt().
          */
 
-        
+    	System.out.println("age???????????????????????");
+    	int age = scan.nextInt();
         
         /*
          * 4.) Try asking the user for another piece of information that's not a
@@ -62,9 +64,11 @@ public class ScannerDemo {
          * are capable of taking in primitive data types.
          */
 
+    	System.out.println("slow? t/f");
+    	Boolean slow = scan.nextBoolean();
         // 5.) Print the user's data to the console nicely formatted.
-
-        
+    	
+        System.out.println("Name: " + name + "\nAge: " + age + "\nSlow: " + slow);
         
         /*
          * 6.) Close your scanner to avoid memory leaks.
@@ -72,7 +76,7 @@ public class ScannerDemo {
          * Note: When using a Scanner with the System.in input stream in larger
          * programs only close the scanner when your program is completely done.
          */
-
+        scan.close();
     }
 
 }
