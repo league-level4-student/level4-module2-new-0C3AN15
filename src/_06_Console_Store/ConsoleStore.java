@@ -1,5 +1,13 @@
 package _06_Console_Store;
 
+import java.util.Scanner;
+
+import _02_Generics_Store.Candy;
+import _02_Generics_Store.Cart;
+import _02_Generics_Store.Cereal;
+import _02_Generics_Store.Clothing;
+import _02_Generics_Store.Toy;
+
 public class ConsoleStore {
 
     /*
@@ -37,7 +45,72 @@ public class ConsoleStore {
      */
 
     public static void main(String[] args) {
-
+    	Scanner scan = new Scanner(System.in);
+    	int money = 1000050;
+    	int total = 0;
+    	String action = "";
+    	boolean paid = false;
+    	Cart cart = new Cart();
+    	
+    	System.out.println("actions: add (item), remove (item), view items or check out");
+    	System.out.println("product: candy ($50), cereal ($1,000,000), toy ($1), clothing (2$)");
+    	System.out.println("money = $" + money);
+    	System.out.println("name:");
+    	String name = scan.nextLine();
+    	
+    	do {
+            
+            System.out.println("action:");
+            action = scan.nextLine();
+            
+            Candy candy = new Candy();
+            Cereal cereal = new Cereal();
+            Toy toy = new Toy();
+            Clothing clothing = new Clothing();
+            
+            if(action.equals("add candy")) {
+            	cart.add(candy);
+            	total += 50;
+            }
+            if(action.equals("add cereal")) {
+            	cart.add(cereal);
+            	total += 1000000;
+            }
+            if(action.equals("add toy")) {
+            	cart.add(toy);
+            	total += 1;
+            }
+            if(action.equals("add clothing")) {
+            	cart.add(clothing);
+            	total += 2;
+            }
+            
+            if(action.equals("remove candy")) {
+            	cart.remove(candy);
+            	total -= 50;
+            }
+            
+            if(action.equals("view items")) {
+            	cart.showCart();
+            }
+            if(action.equals("check out")) {
+            	if(total > money) {
+            		paid = true;
+            	}
+            	else {
+            		System.out.println("broke");
+            		
+            	}
+            }
+            
+            } while (paid == false);
+            
+    	money -= total;
+    	cart.showCart();
+    	System.out.println("receipt: ");
+    	
+            scan.close();
+    	
     }
 
 }
